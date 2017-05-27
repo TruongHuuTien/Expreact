@@ -1,0 +1,21 @@
+{
+  "name": "interaction",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "babel-node index.js"
+  },
+  "author": "Huu-Tien TRUONG",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.5.1"
+  },
+  "babel": {
+    "presets": ["env"]
+  }
+}
