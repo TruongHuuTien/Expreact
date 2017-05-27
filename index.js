@@ -1,18 +1,11 @@
 import path from 'path';
 import express from 'express';
-import React from 'react';
-import ReactDOMServer from 'react-dom/server';
 import config from './src/config';
-import Html from './src/view/Html.js';
+import route from './src/routes';
 
 const app = express();
 
-
-/* React */
-app.get('*', (req, res, next) => {
-  const html = ReactDOMServer.renderToStaticMarkup(<Html />);
-  res.send(`<!doctype html>${html}`);
-});
+app.use(route);
 
 app.listen(config.port, () => {
   console.info(`The server is running at http://localhost:${config.port}/`);
