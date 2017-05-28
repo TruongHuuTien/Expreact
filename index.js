@@ -7,6 +7,7 @@ import apiRoutes from './src/routes/api.js';
 
 const app = express();
 
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
