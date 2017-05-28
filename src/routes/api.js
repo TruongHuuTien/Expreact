@@ -1,8 +1,9 @@
 import express from 'express';
 import userModel from '../models/user.js';
 
-const expressRouter = express.Router();
+const router = express.Router();
 
-expressRouter.get('/users', userModel.getCollection);
+router.get('/users', userModel.getUserCollection);
+router.post('/user', userModel.createUser);
 
-module.exports = expressRouter;
+module.exports = router;
