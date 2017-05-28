@@ -2,8 +2,8 @@ import express from 'express';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import Router from 'universal-router';
-import Html from './view/Html.js';
-import HomeView from './view/Home.js';
+import Html from '../view/Html.js';
+import HomeView from '../view/Home.js';
 
 const expressRouter = express.Router();
 const routes = [
@@ -29,9 +29,9 @@ const routes = [
 const router = new Router(routes);
 
 /* React */
-expressRouter.get('*', (req, res, next) => {
-  const route = router.resolve({path: req.path}).then((result) => {
-    const html = ReactDOMServer.renderToStaticMarkup(<Html>{result}</Html>);
+expressRouter.get('*', (req, res) => {
+  const route = router.resolve({path: req.path}).then((routeData) => {
+    const html = ReactDOMServer.renderToStaticMarkup(<Html>{routeData}</Html>);
     res.send(`<!doctype html>${html}`);
   });
 
