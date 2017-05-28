@@ -1,6 +1,11 @@
 var path = require('path');
 
 module.exports = {
+  entry: './src/views/components/Html.js',
+  output: {
+      filename: 'app.js',
+      path: path.resolve(__dirname, 'public')
+  },
   module: {
     rules: [
       {
@@ -14,5 +19,6 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  watch: true
 };
