@@ -2,8 +2,8 @@ import express from 'express';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import Router from 'universal-router';
-import Html from '../view/Html.js';
-import HomeView from '../view/Home.js';
+import Html from '../views/components/Html.js';
+import HomeView from '../views/Home.js';
 
 const expressRouter = express.Router();
 const routes = [
