@@ -1,6 +1,7 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
+import {Card, CardActions, CardHeader, CardTitle, CardText} from 'material-ui/Card';
 import axios from 'axios';
 
 class Register extends React.Component {
@@ -21,23 +22,31 @@ class Register extends React.Component {
       email: event.target.email.value,
       password: event.target.password.value
     }
-    console.log(this.user);
     axios.post('/api/user', {user: this.user})
     .then((res) => {
       console.log(res);
+    })
+    .catch(function (error) {
+      console.log(error);
     });
   }
 
   render() {
     return (
       <div>
-        <h1>Inscription</h1>
-        <form onSubmit={this.processForm}>
-          <TextField hintText="Hint Text" name="name" hintText="Nom" />
-          <TextField hintText="Hint Text" name="email" hintText="Email" />
-          <TextField hintText="Hint Text" name="password" hintText="Mot de passe" />
-          <RaisedButton label="S'inscrire" primary={true} />
-        </form>
+        <Card id="register-card">
+          <CardTitle title="Inscription" />
+          <form onSubmit={this.processForm}>
+            <CardText>
+              <TextField hintText="Hint Text" name="name" hintText="Nom" fullWidth={true} /><br />
+              <TextField hintText="Hint Text" name="email" hintText="Email" fullWidth={true} /><br />
+              <TextField hintText="Hint Text" name="password" hintText="Mot de passe" fullWidth={true} /><br />
+            </CardText>
+            <CardActions>
+              <RaisedButton label="S'inscrire" type="submit" primary={true} />
+            </CardActions>
+          </form>
+        </Card>
       </div>
     );
   }

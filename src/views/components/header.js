@@ -1,5 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import AppBar from 'material-ui/AppBar';
+import IconMenu from 'material-ui/IconMenu';
+import IconButton from 'material-ui/IconButton';
+import FontIcon from 'material-ui/FontIcon';
+import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
 
 class Header extends React.Component {
   constructor(props) {
@@ -8,11 +13,8 @@ class Header extends React.Component {
   render() {
     return(
       <div id="header">
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/register">Sign up</Link></li>
-          <li><Link to="/login">Login</Link></li>
-        </ul>
+        <AppBar title="Interaction" showMenuIconButton={false}>
+        </AppBar>
       </div>
     )
   }

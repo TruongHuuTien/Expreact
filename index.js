@@ -3,6 +3,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import config from './src/config';
 import api from './src/api.js';
+import auth from './src/auth.js';
 
 const app = express();
 
@@ -12,6 +13,7 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
+app.use('/auth', auth);
 app.use('/api', api);
 app.get('*', (req, res) => {
   res.redirect("/");

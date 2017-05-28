@@ -1,0 +1,24 @@
+body, #root {
+  margin: 0px;
+}
+#homePage {
+  background-color: rgb(239, 108, 0);
+  position: absolute;
+  top: 0px; bottom: 0px;
+  left: 0px; right: 0px;
+  padding: 100px 100px 0px;
+}
+#home-login-card {
+  max-width: 400px;
+  margin: 40px auto;
+}
+
+#register-card {
+  max-width: 400px;
+  margin: 40px auto;
+}
+
+#login-card {
+  max-width: 400px;
+  margin: 40px auto;
+}
