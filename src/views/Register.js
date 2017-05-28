@@ -1,5 +1,6 @@
 import React from 'react';
-import { FormGroup, FormControl, Button } from 'react-bootstrap';
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
 import axios from 'axios';
 
 class Register extends React.Component {
@@ -32,12 +33,10 @@ class Register extends React.Component {
       <div>
         <h1>Inscription</h1>
         <form onSubmit={this.processForm}>
-          <FormGroup>
-            <FormControl type="text" name="name" />
-            <FormControl type="text" name="email" />
-            <FormControl type="password" name="password" />
-            <Button type="submit" bsStyle="primary">Sign up</Button>
-          </FormGroup>
+          <TextField hintText="Hint Text" name="name" hintText="Nom" />
+          <TextField hintText="Hint Text" name="email" hintText="Email" />
+          <TextField hintText="Hint Text" name="password" hintText="Mot de passe" />
+          <RaisedButton label="S'inscrire" primary={true} />
         </form>
       </div>
     );
