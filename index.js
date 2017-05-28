@@ -13,6 +13,9 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use('/api', api);
+app.get('*', (req, res) => {
+  res.redirect("/");
+});
 
 app.listen(config.port, () => {
   console.info(`The server is running at http://localhost:${config.port}/`);
