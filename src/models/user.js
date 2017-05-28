@@ -18,6 +18,7 @@ const user = {
 
   // POST /user
   createUser(req, res) {
+    // Check parameters
     if (req.body == undefined || req.body.user == undefined) {
       res.status(400).send('No parameter: user');
       return false;
@@ -35,22 +36,33 @@ const user = {
       return false;
     }
 
+    // user object
     const user = {
       name: req.body.user.name,
       email: req.body.user.email,
       password: req.body.user.password
     }
-    const queryUser = `INSERT INTO user (name) VALUES ('${user.name}')`;
-    mysql.query(queryUser, (err, result) => {
-      if (err) throw err;
-      const userId = result.insertId
-      const queryAuth = `INSERT INTO user_auth (user_id, email, password) VALUES ('${userId}', '${user.email}', '${user.password}')`;
-      mysql.query(queryAuth, (err, result) => {
+
+    // Check if already exist
+    const queryCheck = `SELECT user_id FROM user_auth WHERE email='${user.email}'`;
+    mysql.query(queryCheck, (err, result) => {
+      if (result.length > 0) {
+        res.status(400).send('email already exist');
+        return false;
+      }
+
+      //Insert
+      const queryUser = `INSERT INTO user (name) VALUES ('${user.name}')`;
+      mysql.query(queryUser, (err, result) => {
         if (err) throw err;
-        res.send('ok');
+        const userId = result.insertId
+        const queryAuth = `INSERT INTO user_auth (user_id, email, password) VALUES ('${userId}', '${user.email}', '${user.password}')`;
+        mysql.query(queryAuth, (err, result) => {
+          if (err) throw err;
+          res.send('ok');
+        });
       });
     });
-
     return true;
   }
 }

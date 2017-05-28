@@ -1,5 +1,6 @@
 import React from 'react';
 import { FormGroup, FormControl, Button } from 'react-bootstrap';
+import axios from 'axios';
 
 class Register extends React.Component {
   constructor(props) {
@@ -7,9 +8,9 @@ class Register extends React.Component {
     this.user = {
       name: '',
       email: '',
-      pwd: ''
+      password: ''
     };
-    //this.processForm = this.processForm.bind(this);
+    this.processForm = this.processForm.bind(this);
   }
 
   processForm(event) {
@@ -17,9 +18,13 @@ class Register extends React.Component {
     this.user = {
       name: event.target.name.value,
       email: event.target.email.value,
-      pwd: event.target.pwd.value
+      password: event.target.password.value
     }
     console.log(this.user);
+    axios.post('/api/user', {user: this.user})
+    .then((res) => {
+      console.log(res);
+    });
   }
 
   render() {
