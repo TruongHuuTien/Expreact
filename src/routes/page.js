@@ -5,6 +5,7 @@ import Router from 'universal-router';
 import Html from '../views/components/Html.js';
 import HomeView from '../views/Home.js';
 import LoginView from '../views/Login.js';
+import RegisterView from '../views/Register.js';
 
 const expressRouter = express.Router();
 const routes = [{
@@ -21,6 +22,14 @@ const routes = [{
     return {
       title: "Login",
       components: <LoginView />
+    }
+  }
+}, {
+  path: "/register",
+  action: () => {
+    return {
+      title: "Inscription",
+      components: <RegisterView />
     }
   }
 }, {
