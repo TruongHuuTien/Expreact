@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({
 app.use('/auth', auth);
 app.use('/api', api);
 app.get('*', (req, res) => {
-  res.redirect("/");
+  res.sendfile(path.join(__dirname, 'public/index.html'));
 });
 
 app.listen(config.port, () => {
