@@ -37,7 +37,6 @@ router.post('/login', (req, res) => {
       res.status(401).send('No user with this email');
       return false;
     }
-    console.log(result);
     if (result[0].password !== user.password) {
       res.status(401).send('wrong password');
       return false;

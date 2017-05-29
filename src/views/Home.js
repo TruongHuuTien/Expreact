@@ -3,6 +3,7 @@ import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import {Card, CardActions, CardHeader, CardTitle, CardText} from 'material-ui/Card';
 import axios from 'axios';
+import { browserHistory } from 'react-router';
 
 class Home extends React.Component {
 
@@ -24,6 +25,7 @@ class Home extends React.Component {
     axios.post('/auth/login', {user: this.user})
     .then((res) => {
       window.jwt = res.data.jwt;
+      this.props.history.push('/app');
     })
     .catch(function (error) {
       console.log(error.response.data);

@@ -7,6 +7,7 @@ import Header from './views/components/Header.js';
 import HomePage from './views/Home.js';
 import RegisterPage from './views/Register.js';
 import LoginPage from './views/Login.js';
+import AppPage from './views/App.js';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
@@ -29,6 +30,7 @@ ReactDom.render(
         <Route exact path="/" component={HomePage}/>
         <Route path="/register" component={RegisterPage}/>
         <Route path="/login" component={LoginPage}/>
+        <Route path="/app" component={AppPage}/>
       </div>
     </BrowserRouter>
   </MuiThemeProvider>,
